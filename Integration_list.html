@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="keywords" content="your keywords">
+    <meta name="description" content="your description">
+    <meta name="author" content="author,email address">
+    <meta name="robots" content="index,follow">
+    <meta name="renderer" content="ie-stand">
+    <link rel="dns-prefetch" href="">
+    <title>政务资源平台</title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <link rel="stylesheet" href="font/iconfont.css" >
+    <link rel="stylesheet" href="css/reset.css" >
+    <link rel="stylesheet" href="css/index.css" >
+    <link rel="stylesheet" href="css/popover.css">
+</head>
+<body>
+    <div class="clearfix header">
+        <div class="clearfix logo-box">
+            <span class="logo"></span><span class="isSecret">非涉密</span>
+        </div>
+        <div class="menu-box">
+            <ul class="layui-nav">
+                <li class="layui-nav-item">
+                    <a class="menu-title"><i class="iconfont icon-tianbao"></i><span>自查清理整合填报</span></a>
+                    <dl class="layui-nav-child">
+                        <dd class="layui-this"><a href="javascript:;">自查清理整合清单填报</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="menu-title"><i class="iconfont icon-evolve"></i><span>工作进展填报</span></a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">工作进展情况填报</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="menu-title"><i class="iconfont icon-look"></i><span>已填报信息查看</span></a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">自查清理整合情况查看</a></dd>
+                        <dd><a href="javascript:;">工作进展情况查看</a></dd>
+                        <dd><a href="javascript:;">汇总查看</a></dd>
+                        <dd><a href="score_list.html">其他系统汇总查看</a></dd>
+                        <dd><a href="javascript:;">其他系统情况查看</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+        <div class="user-box">
+            <a href="javascript:;">
+                <i class="iconfont icon-yonghu"></i>
+                <span class="userinfo-box">Admin <i class="iconfont icon-arrow"></i></span>
+            </a>
+            <a href="javascript:;">
+                <i class="iconfont icon-exit"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="main-warp">
+        <div class="tab-box">
+            <ul>
+                <li class="index">首页</li>
+                <li class="tab-item active"><span>自查清理整合清单填报</span><i class="iconfont icon-close"></i></li>
+                <li class="tab-item other"><span>工作进展填报</span><i class="iconfont icon-close"></i></li>
+                <li class="tab-item other"><span>已填报信息查看</span><i class="iconfont icon-close"></i></li>
+            </ul>
+            <a href="javascript:;" class="close-all">关闭全部</a>
+        </div>
+        <div class="clearfix main-con">
+            <div class="item-con active">
+                <p class="search-title">条件查询</p>
+                <div class="search-condition">
+                    <div class="clearfix condition-box">
+                        <form class="layui-form" action="">
+                            <span class="title-txt">信息系统名称：</span>
+                            <input type="text" class="input-box sl-input-box"/>
+
+                            <span class="title-txt ml30">创建时间：</span>
+                            <input type="text" class="input-box sl-input-box date-input" readonly id="date-state"/>
+                            <span class="date-line">—</span>
+                            <input type="text" class="input-box sl-input-box date-input" readonly id="date-end"/>
+
+                            <span class="title-txt ml30">系统状态：</span>
+                            <select name="state-sys" lay-verify="">
+                                <option value=""></option>
+                                <option value="1">状态1</option>
+                                <option value="2">状态2</option>
+                                <option value="3">状态3</option>
+                            </select>
+
+                            <span class="title-txt ml30">数据状态：</span>
+                            <select name="state-data" lay-verify="">
+                                <option value=""></option>
+                                <option value="1">状态1</option>
+                                <option value="2">状态2</option>
+                                <option value="3">状态3</option>
+                            </select>
+
+                            <a href="javascript:;" class="btn-search"><i class="iconfont icon-sousuo"></i><span class="btntxt">查询</span></a>
+                            <a href="javascript:;" class="btn-refresh"><i class="iconfont icon-refresh"></i><span class="btntxt">重置</span></a>
+                        </form>
+                    </div>
+                </div>
+                <div class="clearfix table-box">
+                    <div class="operation-box">
+                        <ul>
+                            <li><a href="javascript:;"><i class="iconfont icon-download"></i><span>下载模板</span></a></li>
+                            <li><a href="javascript:;"><i class="iconfont icon-import"></i><span>批量导入</span></a></li>
+                            <li data-method="integration"><a href="javascript:;"><i class="iconfont icon-tianbaozhong"></i><span>在线填报</span></a></li>
+                            <li><a href="javascript:;"><i class="iconfont icon-submit"></i><span>批量提交</span></a></li>
+                            <li><a href="javascript:;"><i class="iconfont icon-clean clean1"></i><span>拟清理标记</span></a></li>
+                            <li><a href="javascript:;"><i class="iconfont icon-zhenghe"></i><span>拟整合标记</span></a></li>
+                            <li><a href="javascript:;"><i class="iconfont icon-clean clean2"></i><span>已清理标记</span></a></li>
+                            <li><a href="javascript:;"><i class="iconfont icon-zhenghe"></i><span>已整合标记</span></a></li>
+                            <li><a href="javascript:;"><i class="iconfont icon-retain"></i><span>保留标记</span></a></li>
+                            <li><a href="javascript:;"><i class="iconfont icon-penging"></i><span>还原为待处理</span></a></li>
+                            <li><a href="javascript:;"><i class="iconfont icon-shanchu"></i><span>删除</span></a></li>
+                        </ul>
+                    </div>
+                    <form class="layui-form">
+                        <table class="Integration-table">
+                            <tr>
+                                <th></th>
+                                <th width="30"><input type="checkbox" name="" lay-skin="primary"></th>
+                                <th>编号</th>
+                                <th>部门全称</th>
+                                <th>信息系统名称</th>
+                                <th>主管司局/处室</th>
+                                <th>主管部门联系人</th>
+                                <th>系统状态</th>
+                                <th>整合后大系统名称</th>
+                                <th>接入共享平台状态</th>
+                                <th>备注</th>
+                                <th>数据状态</th>
+                                <th>提交时间</th>
+                                <th>操作</th>
+                            </tr>
+                            <tr>
+                                <td><i class="iconfont icon-zhankai"></i></td>
+                                <td><input type="checkbox" name="" lay-skin="primary"></td>
+                                <td>1</td>
+                                <td>公安部</td>
+                                <td><span class="ellipsis">国家人口基础信息</span></td>
+                                <td><span class="ellipsis">科技信息化局大数</span></td>
+                                <td>不适用</td>
+                                <td>拟整合</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>1230</td>
+                                <td>已提交</td>
+                                <td>2017-05-02  05:20</td>
+                                <td>
+                                    <ul class="tr-operation">
+                                        <li><a href="javascript:;"><i class="iconfont icon-chakan"></i><span>查看</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-clean clean1"></i><span>拟清理标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-clean clean2"></i><span>已清理标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-zhenghe"></i><span>已整合标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-retain"></i><span>保留标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-penging"></i><span>还原为待处理</span></a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><i class="iconfont icon-zhankai"></i></td>
+                                <td><input type="checkbox" name="" lay-skin="primary"></td>
+                                <td>2</td>
+                                <td>公安部</td>
+                                <td><span class="ellipsis">公安信用信息共享</span></td>
+                                <td><span class="ellipsis">公安部科技信息化</span></td>
+                                <td>不适用</td>
+                                <td>已整合</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>12312</td>
+                                <td>已提交</td>
+                                <td>2017-05-02  05:20</td>
+                                <td>
+                                    <ul class="tr-operation">
+                                        <li><a href="javascript:;"><i class="iconfont icon-chakan"></i><span>查看</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-clean clean1"></i><span>拟清理标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-clean clean2"></i><span>已清理标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-zhenghe"></i><span>已整合标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-retain"></i><span>保留标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-penging"></i><span>还原为待处理</span></a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><i class="iconfont icon-zhankai"></i></td>
+                                <td><input type="checkbox" name="" lay-skin="primary"></td>
+                                <td>3</td>
+                                <td>公安部</td>
+                                <td><span class="ellipsis">国家人口基础信息</span></td>
+                                <td><span class="ellipsis">科技信息化局大数</span></td>
+                                <td>不适用</td>
+                                <td>已清理</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>234</td>
+                                <td>已提交</td>
+                                <td>2017-05-02  05:20</td>
+                                <td>
+                                    <ul class="tr-operation">
+                                        <li><a href="javascript:;"><i class="iconfont icon-chakan"></i><span>查看</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-clean clean1"></i><span>拟清理标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-clean clean2"></i><span>已清理标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-zhenghe"></i><span>已整合标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-retain"></i><span>保留标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-penging"></i><span>还原为待处理</span></a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><i class="iconfont icon-zhankai"></i></td>
+                                <td><input type="checkbox" name="" lay-skin="primary"></td>
+                                <td>4</td>
+                                <td>公安部</td>
+                                <td><span class="ellipsis">公安信用信息共享</span></td>
+                                <td><span class="ellipsis">公安部科技信息化</span></td>
+                                <td>不适用</td>
+                                <td>保留</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>1230</td>
+                                <td>已提交</td>
+                                <td>2017-05-02  05:20</td>
+                                <td>
+                                    <ul class="tr-operation">
+                                        <li><a href="javascript:;"><i class="iconfont icon-chakan"></i><span>查看</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-clean clean1"></i><span>拟清理标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-clean clean2"></i><span>已清理标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-zhenghe"></i><span>已整合标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-retain"></i><span>保留标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-penging"></i><span>还原为待处理</span></a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><i class="iconfont icon-zhankai"></i></td>
+                                <td><input type="checkbox" name="" lay-skin="primary"></td>
+                                <td>5</td>
+                                <td>公安部</td>
+                                <td><span class="ellipsis">国家人口基础信息</span></td>
+                                <td><span class="ellipsis">科技信息化局大数</span></td>
+                                <td>不适用</td>
+                                <td>拟整合</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>1230</td>
+                                <td>已提交</td>
+                                <td>2017-05-02  05:20</td>
+                                <td>
+                                    <ul class="tr-operation">
+                                        <li><a href="javascript:;"><i class="iconfont icon-chakan"></i><span>查看</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-clean clean1"></i><span>拟清理标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-clean clean2"></i><span>已清理标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-zhenghe"></i><span>已整合标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-retain"></i><span>保留标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-penging"></i><span>还原为待处理</span></a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><i class="iconfont icon-zhankai"></i></td>
+                                <td><input type="checkbox" name="" lay-skin="primary"></td>
+                                <td>6</td>
+                                <td>公安部</td>
+                                <td><span class="ellipsis">公安信用信息共享</span></td>
+                                <td><span class="ellipsis">公安部科技信息化</span></td>
+                                <td>不适用</td>
+                                <td>已整合</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>1230</td>
+                                <td>已提交</td>
+                                <td>2017-05-02  05:20</td>
+                                <td>
+                                    <ul class="tr-operation">
+                                        <li><a href="javascript:;"><i class="iconfont icon-chakan"></i><span>查看</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-clean clean1"></i><span>拟清理标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-clean clean2"></i><span>已清理标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-zhenghe"></i><span>已整合标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-retain"></i><span>保留标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-penging"></i><span>还原为待处理</span></a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><i class="iconfont icon-zhankai"></i></td>
+                                <td><input type="checkbox" name="" lay-skin="primary"></td>
+                                <td>7</td>
+                                <td>公安部</td>
+                                <td><span class="ellipsis">国家人口基础信息</span></td>
+                                <td><span class="ellipsis">科技信息化局大数</span></td>
+                                <td>不适用</td>
+                                <td>已清理</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>1230</td>
+                                <td>已提交</td>
+                                <td>2017-05-02  05:20</td>
+                                <td>
+                                    <ul class="tr-operation">
+                                        <li><a href="javascript:;"><i class="iconfont icon-chakan"></i><span>查看</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-clean clean1"></i><span>拟清理标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-clean clean2"></i><span>已清理标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-zhenghe"></i><span>已整合标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-retain"></i><span>保留标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-penging"></i><span>还原为待处理</span></a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><i class="iconfont icon-zhankai"></i></td>
+                                <td><input type="checkbox" name="" lay-skin="primary"></td>
+                                <td>8</td>
+                                <td>公安部</td>
+                                <td><span class="ellipsis">公安信用信息共享</span></td>
+                                <td><span class="ellipsis">公安部科技信息化</span></td>
+                                <td>不适用</td>
+                                <td>保留</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>1230</td>
+                                <td>已提交</td>
+                                <td>2017-05-02  05:20</td>
+                                <td>
+                                    <ul class="tr-operation">
+                                        <li><a href="javascript:;"><i class="iconfont icon-chakan"></i><span>查看</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-clean clean1"></i><span>拟清理标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-clean clean2"></i><span>已清理标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-zhenghe"></i><span>已整合标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-retain"></i><span>保留标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-penging"></i><span>还原为待处理</span></a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><i class="iconfont icon-zhankai"></i></td>
+                                <td><input type="checkbox" name="" lay-skin="primary"></td>
+                                <td>9</td>
+                                <td>公安部</td>
+                                <td><span class="ellipsis">国家人口基础信息</span></td>
+                                <td><span class="ellipsis">科技信息化局大数</span></td>
+                                <td>不适用</td>
+                                <td>拟整合</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>1230</td>
+                                <td>已提交</td>
+                                <td>2017-05-02  05:20</td>
+                                <td>
+                                    <ul class="tr-operation">
+                                        <li><a href="javascript:;"><i class="iconfont icon-chakan"></i><span>查看</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-clean clean1"></i><span>拟清理标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-clean clean2"></i><span>已清理标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-zhenghe"></i><span>已整合标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-retain"></i><span>保留标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-penging"></i><span>还原为待处理</span></a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><i class="iconfont icon-zhankai"></i></td>
+                                <td><input type="checkbox" name="" lay-skin="primary"></td>
+                                <td>10</td>
+                                <td>公安部</td>
+                                <td><span class="ellipsis">公安信用信息共享</span></td>
+                                <td><span class="ellipsis">公安部科技信息化</span></td>
+                                <td>不适用</td>
+                                <td>已整合</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>1230</td>
+                                <td>已提交</td>
+                                <td>2017-05-02  05:20</td>
+                                <td>
+                                    <ul class="tr-operation">
+                                        <li><a href="javascript:;"><i class="iconfont icon-chakan"></i><span>查看</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-clean clean1"></i><span>拟清理标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-clean clean2"></i><span>已清理标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-zhenghe"></i><span>已整合标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-retain"></i><span>保留标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-penging"></i><span>还原为待处理</span></a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><i class="iconfont icon-zhankai"></i></td>
+                                <td><input type="checkbox" name="" lay-skin="primary"></td>
+                                <td>11</td>
+                                <td>公安部</td>
+                                <td><span class="ellipsis">国家人口基础信息</span></td>
+                                <td><span class="ellipsis">科技信息化局大数</span></td>
+                                <td>不适用</td>
+                                <td>拟整合</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>1230</td>
+                                <td>已提交</td>
+                                <td>2017-05-02  05:20</td>
+                                <td>
+                                    <ul class="tr-operation">
+                                        <li><a href="javascript:;"><i class="iconfont icon-chakan"></i><span>查看</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-clean clean1"></i><span>拟清理标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-clean clean2"></i><span>已清理标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-zhenghe"></i><span>已整合标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-retain"></i><span>保留标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-penging"></i><span>还原为待处理</span></a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><i class="iconfont icon-zhankai"></i></td>
+                                <td><input type="checkbox" name="" lay-skin="primary"></td>
+                                <td>12</td>
+                                <td>公安部</td>
+                                <td><span class="ellipsis">公安信用信息共享</span></td>
+                                <td><span class="ellipsis">公安部科技信息化</span></td>
+                                <td>不适用</td>
+                                <td>已整合</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>1230</td>
+                                <td>已提交</td>
+                                <td>2017-05-02  05:20</td>
+                                <td>
+                                    <ul class="tr-operation">
+                                        <li><a href="javascript:;"><i class="iconfont icon-chakan"></i><span>查看</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-clean clean1"></i><span>拟清理标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-clean clean2"></i><span>已清理标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-zhenghe"></i><span>已整合标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-retain"></i><span>保留标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-penging"></i><span>还原为待处理</span></a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><i class="iconfont icon-zhankai"></i></td>
+                                <td><input type="checkbox" name="" lay-skin="primary"></td>
+                                <td>...</td>
+                                <td>公安部</td>
+                                <td><span class="ellipsis">国家人口基础信息</span></td>
+                                <td><span class="ellipsis">科技信息化局大数</span></td>
+                                <td>不适用</td>
+                                <td>拟整合</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>1230</td>
+                                <td>已提交</td>
+                                <td>2017-05-02  05:20</td>
+                                <td>
+                                    <ul class="tr-operation">
+                                        <li><a href="javascript:;"><i class="iconfont icon-chakan"></i><span>查看</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-clean clean1"></i><span>拟清理标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-clean clean2"></i><span>已清理标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-zhenghe"></i><span>已整合标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-retain"></i><span>保留标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-penging"></i><span>还原为待处理</span></a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><i class="iconfont icon-zhankai"></i></td>
+                                <td><input type="checkbox" name="" lay-skin="primary"></td>
+                                <td>100</td>
+                                <td>公安部</td>
+                                <td><span class="ellipsis">公安信用信息共享</span></td>
+                                <td><span class="ellipsis">公安部科技信息化</span></td>
+                                <td>不适用</td>
+                                <td>已整合</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>1230</td>
+                                <td>已提交</td>
+                                <td>2017-05-02  05:20</td>
+                                <td>
+                                    <ul class="tr-operation">
+                                        <li><a href="javascript:;"><i class="iconfont icon-chakan"></i><span>查看</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-clean clean1"></i><span>拟清理标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-clean clean2"></i><span>已清理标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-zhenghe"></i><span>已整合标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-retain"></i><span>保留标记</span></a></li>
+                                        <li><a href="javascript:;"><i class="iconfont icon-penging"></i><span>还原为待处理</span></a></li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                    <div class="pagination">
+                        <ul>
+                            <li><span>共4815页，每页100条</span></li>
+                            <li class="item first"><a href="javascript:;">&lt;&lt;</a></li>
+                            <li class="item"><a href="javascript:;">&lt;</a></li>
+                            <li class="item"><a href="javascript:;">1</a></li>
+                            <li class="item"><a href="javascript:;">2</a></li>
+                            <li class="item"><a href="javascript:;">&gt;</a></li>
+                            <li class="item last"><a href="javascript:;">&gt;&gt;</a></li>
+                            <li><a href="javascript:;" class="btn-queding">确定</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p class="copyright">Copyright &copy; 2006-2017</p>
+    </div>
+
+
+    <div class="notice" style="display:none;">
+        <div class="popover-box">
+            <div class="pop-sl-title">其他类(除非涉密系统外)自查清理整合统计情况</div>
+            <div class="num-box">
+                <div class="num">432</div>
+                <div class="num-tit">其他类系统总数</div>
+            </div>
+            <div class="form-box">
+                <div class="form-row last-row">
+                    <span>拟清理系统数量：</span>
+                    <input type="text" class="input-box" value="56"/>
+                    <span>已清理系统数量：</span>
+                    <input type="text" class="input-box" value="56"/>
+                </div>
+                <div class="form-row last-row">
+                    <span>拟整合系统数量：</span>
+                    <input type="text" class="input-box" value="456"/>
+                    <span>已整合系统数量：</span>
+                    <input type="text" class="input-box" value="456"/>
+                </div>
+                <div class="form-row last-row">
+                    <span>单独保留系统数量：</span>
+                    <input type="text" class="input-box" value="12"/>
+                    <span class="last-span">计划接入共享平台<br/>系统数量：</span>
+                    <input type="text" class="input-box" value="12"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="integration" style="display:none;">
+        <div class="popover-box">
+            <div class="pop-sl-title">自查情况</div>
+            <div class="form-box">
+                <form class="layui-form" action="">
+                <div class="form-row last-row">
+                    <span>编号：</span>
+                    <input type="text" class="input-box" value="56"/>
+                    <span>中央部门全程：</span>
+                    <input type="text" class="input-box" value="56"/>
+                </div>
+                <div class="form-row last-row">
+                    <span>信息系统名称：</span>
+                    <input type="text" class="input-box" value="456"/>
+                    <span>主管司局/处室：</span>
+                    <input type="text" class="input-box" value="456"/>
+                </div>
+                <div class="form-row last-row">
+                    <span>主管部门联系人：</span>
+                    <input type="text" class="input-box" value="12"/>
+                    <span>主管部门联系电话：</span>
+                    <input type="text" class="input-box" value="12"/>
+                </div>
+                <div class="form-row last-row">
+
+                    <span class="last-span">信息系统安全等级定级情况：</span>
+                    <input type="text" class="input-box" value="12"/>
+
+                    <span>项目建设资金来源：</span>
+                    <input type="text" class="input-box" value="12"/>
+                </div>
+                <div class="form-row last-row">
+                    <span>预算项目名称：</span>
+                    <input type="text" class="input-box" value="12"/>
+                    <span>项目立项审批部门：</span>
+                    <input type="text" class="input-box" value="12"/>
+                </div>
+                <div class="form-row last-row">
+                    <span>项目立项审批日期：</span>
+                    <input type="text" class="input-box" value="12"/>
+                    <span class="last-span">承载网络（电子政务外网，其他自建网络（自填名称），单机运行）：</span>
+                    <input type="text" class="input-box" value="12"/>
+                </div>
+                <div class="form-row last-row">
+                    <span class="last-span">项目预算批复总金额（万元）：</span>
+                    <input type="text" class="input-box" value="12"/>
+                    <span class="last-span">截至2016年运维费用总支出（万元）：</span>
+                    <input type="text" class="input-box" value="12"/>
+                </div>
+                <div class="form-row last-row">
+                    <span>系统开始使用日期：</span>
+                    <input type="text" class="input-box" value="12"/>
+                    <span>系统运行维护单位名称：</span>
+                    <input type="text" class="input-box" value="12"/>
+                </div>
+                <div class="form-row last-row">
+                    <span class="last-span">数据存储量大小（GB）：</span>
+                    <input type="text" class="input-box" value="12"/>
+                    <span>系统用户范围：</span>
+                    <input type="text" class="input-box" value="12"/>
+                </div>
+                <div class="form-row last-row">
+                    <span class="last-span">系统使用频率（2016年度累计用户访问/登陆次数）：</span>
+                    <input type="text" class="input-box" value="12"/>
+                </div>
+                <div class="form-row">
+                    <span>主要功能：</span>
+                    <textarea class="textarea-box"></textarea>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<script src="js/jquery-v1.11.3.js"></script>
+<script src="layui/layui.js"></script>
+<script src="js/common.js"></script>
+<script src="js/integration.js"></script>
+</body>
+</html>

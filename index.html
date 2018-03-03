@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="keywords" content="your keywords">
+    <meta name="description" content="your description">
+    <meta name="author" content="author,email address">
+    <meta name="robots" content="index,follow">
+    <meta name="renderer" content="ie-stand">
+    <link rel="dns-prefetch" href="">
+    <title>政务资源平台</title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <link rel="stylesheet" href="font/iconfont.css" >
+    <link rel="stylesheet" href="css/reset.css" >
+    <link rel="stylesheet" href="css/index.css" >
+</head>
+<body>
+    <div class="clearfix header">
+        <div class="clearfix logo-box">
+            <span class="logo"></span><span class="isSecret">非涉密</span>
+        </div>
+        <div class="menu-box">
+            <ul class="layui-nav">
+                <li class="layui-nav-item">
+                    <a class="menu-title"><i class="iconfont icon-tianbao"></i><span>自查清理整合填报</span></a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="Integration_list.html">自查清理整合清单填报</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="menu-title"><i class="iconfont icon-evolve"></i><span>工作进展填报</span></a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">工作进展情况填报</a></dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item">
+                    <a class="menu-title"><i class="iconfont icon-look"></i><span>已填报信息查看</span></a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="javascript:;">自查清理整合情况查看</a></dd>
+                        <dd><a href="javascript:;">工作进展情况查看</a></dd>
+                        <dd><a href="javascript:;">汇总查看</a></dd>
+                        <dd class="layui-this"><a href="javascript:;">其他系统汇总查看</a></dd>
+                        <dd><a href="javascript:;">其他系统情况查看</a></dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+        <div class="user-box">
+            <a href="javascript:;">
+                <i class="iconfont icon-yonghu"></i>
+                <span class="userinfo-box">Admin <i class="iconfont icon-arrow"></i></span>
+            </a>
+            <a href="javascript:;">
+                <i class="iconfont icon-exit"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="main-warp">
+        <div class="tab-box">
+            <ul>
+                <li class="index">首页</li>
+                <li class="tab-item active"><span>部门进展考核评分</span><i class="iconfont icon-close"></i></li>
+                <li class="tab-item other"><span>工作进展填报</span><i class="iconfont icon-close"></i></li>
+                <li class="tab-item other"><span>已填报信息查看</span><i class="iconfont icon-close"></i></li>
+            </ul>
+            <a href="javascript:;" class="close-all">关闭全部</a>
+        </div>
+        <div class="clearfix main-con">
+            <div class="item-con active">
+                <p class="search-title">条件查询</p>
+                <div class="search-condition">
+                    <div class="clearfix condition-box">
+                        <span class="title-txt">部门名称：</span>
+                        <input type="text" class="input-box"/>
+                        <a href="javascript:;" class="btn-search"><i class="iconfont icon-sousuo"></i><span class="btntxt">查询</span></a>
+                        <a href="javascript:;" class="btn-refresh"><i class="iconfont icon-refresh"></i><span class="btntxt">重置</span></a>
+                        <a href="javascript:;" class="fr btn-daochu"><i class="iconfont icon-daochu"></i><span class="btntxt">导出数据</span></a>
+                    </div>
+                </div>
+                <div class="clearfix table-box">
+                    <table>
+                        <tr>
+                            <th>编号</th>
+                            <th>部门名称</th>
+                            <th>完成自查清理整合情况得分</th>
+                            <th>自查系统总数占系统总数的比例得分</th>
+                            <th>系统清理率得分</th>
+                            <th>系统整合完成情况得分</th>
+                            <th>总得分</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>公安部</td>
+                            <td>8</td>
+                            <td>16</td>
+                            <td>16</td>
+                            <td>10</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>农业部</td>
+                            <td>8</td>
+                            <td>16</td>
+                            <td>16</td>
+                            <td>10</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>交通运输部</td>
+                            <td>8</td>
+                            <td>16</td>
+                            <td>16</td>
+                            <td>10</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>银监会</td>
+                            <td>8</td>
+                            <td>16</td>
+                            <td>16</td>
+                            <td>10</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>食品药品监管总局</td>
+                            <td>8</td>
+                            <td>16</td>
+                            <td>16</td>
+                            <td>10</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>国家发展和改革委员会</td>
+                            <td>8</td>
+                            <td>16</td>
+                            <td>16</td>
+                            <td>10</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>工程院</td>
+                            <td>8</td>
+                            <td>16</td>
+                            <td>16</td>
+                            <td>10</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>人民银行</td>
+                            <td>8</td>
+                            <td>16</td>
+                            <td>16</td>
+                            <td>10</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>税务总局</td>
+                            <td>8</td>
+                            <td>16</td>
+                            <td>16</td>
+                            <td>10</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>外交部</td>
+                            <td>8</td>
+                            <td>16</td>
+                            <td>16</td>
+                            <td>10</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>文化部</td>
+                            <td>8</td>
+                            <td>16</td>
+                            <td>16</td>
+                            <td>10</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>12</td>
+                            <td>国家能源总局</td>
+                            <td>8</td>
+                            <td>16</td>
+                            <td>16</td>
+                            <td>10</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>...</td>
+                            <td>财务部</td>
+                            <td>8</td>
+                            <td>16</td>
+                            <td>16</td>
+                            <td>10</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>100</td>
+                            <td>国家能源总局</td>
+                            <td>8</td>
+                            <td>16</td>
+                            <td>16</td>
+                            <td>10</td>
+                            <td>50</td>
+                        </tr>
+                    </table>
+                    <div class="pagination">
+                        <ul>
+                            <li><span>共4815页，每页100条</span></li>
+                            <li class="item first"><a href="javascript:;">&lt;&lt;</a></li>
+                            <li class="item"><a href="javascript:;">&lt;</a></li>
+                            <li class="item"><a href="javascript:;">1</a></li>
+                            <li class="item"><a href="javascript:;">2</a></li>
+                            <li class="item"><a href="javascript:;">&gt;</a></li>
+                            <li class="item last"><a href="javascript:;">&gt;&gt;</a></li>
+                            <li><a href="javascript:;" class="btn-queding">确定</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p class="copyright">Copyright &copy; 2006-2017</p>
+    </div>
+
+<script src="js/jquery-v1.11.3.js"></script>
+<script src="layui/layui.js"></script>
+<script src="js/common.js"></script>
+<script src="js/score.js"></script>
+</body>
+</html>

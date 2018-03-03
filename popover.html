@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="keywords" content="your keywords">
+    <meta name="description" content="your description">
+    <meta name="author" content="author,email address">
+    <meta name="robots" content="index,follow">
+    <meta name="renderer" content="ie-stand">
+    <link rel="dns-prefetch" href="">
+    <title>政务资源平台</title>
+    <link rel="stylesheet" href="layui/css/layui.css">
+    <link rel="stylesheet" href="font/iconfont.css" >
+    <link rel="stylesheet" href="css/reset.css" >
+    <link rel="stylesheet" href="css/popover.css">
+</head>
+<body>
+
+<button data-method="notice" class="layui-btn">注意</button>
+<button data-method="integration" class="layui-btn">自查清理整合清单填报</button>
+<button data-method="remark" class="layui-btn">备注（采取的措施）</button>
+<button data-method="remark2" class="layui-btn">备注（采取的措施）2</button>
+<button data-method="isSwitch" class="layui-btn">是否接入共享平台</button>
+<button data-method="workProgress" class="layui-btn">工作进展填报</button>
+
+<div class="notice" style="display:none;">
+    <div class="popover-box">
+        <div class="pop-sl-title">其他类(除非涉密系统外)自查清理整合统计情况</div>
+        <div class="num-box">
+            <div class="num">432</div>
+            <div class="num-tit">其他类系统总数</div>
+        </div>
+        <div class="form-box">
+            <div class="form-row last-row">
+                <span>拟清理系统数量：</span>
+                <input type="text" class="input-box" value="56"/>
+                <span>已清理系统数量：</span>
+                <input type="text" class="input-box" value="56"/>
+            </div>
+            <div class="form-row last-row">
+                <span>拟整合系统数量：</span>
+                <input type="text" class="input-box" value="456"/>
+                <span>已整合系统数量：</span>
+                <input type="text" class="input-box" value="456"/>
+            </div>
+            <div class="form-row last-row">
+                <span>单独保留系统数量：</span>
+                <input type="text" class="input-box" value="12"/>
+                <span class="last-span">计划接入共享平台<br/>系统数量：</span>
+                <input type="text" class="input-box" value="12"/>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="integration" style="display:none;">
+    <div class="popover-box">
+        <div class="pop-sl-title">自查情况</div>
+        <div class="form-box">
+            <div class="form-row last-row">
+                <span>编号：</span>
+                <input type="text" class="input-box" value="56"/>
+                <span>中央部门全程：</span>
+                <input type="text" class="input-box" value="56"/>
+            </div>
+            <div class="form-row last-row">
+                <span>信息系统名称：</span>
+                <input type="text" class="input-box" value="456"/>
+                <span>主管司局/处室：</span>
+                <input type="text" class="input-box" value="456"/>
+            </div>
+            <div class="form-row last-row">
+                <span>主管部门联系人：</span>
+                <input type="text" class="input-box" value="12"/>
+                <span>主管部门联系电话：</span>
+                <input type="text" class="input-box" value="12"/>
+            </div>
+            <div class="form-row last-row">
+                <span class="last-span">信息系统安全等级定级情况：</span>
+                <input type="text" class="input-box" value="12"/>
+                <span>项目建设资金来源：</span>
+                <input type="text" class="input-box" value="12"/>
+            </div>
+            <div class="form-row last-row">
+                <span>预算项目名称：</span>
+                <input type="text" class="input-box" value="12"/>
+                <span>项目立项审批部门：</span>
+                <input type="text" class="input-box" value="12"/>
+            </div>
+            <div class="form-row last-row">
+                <span>项目立项审批日期：</span>
+                <input type="text" class="input-box" value="12"/>
+                <span class="last-span">承载网络（电子政务外网，其他自建网络（自填名称），单机运行）：</span>
+                <input type="text" class="input-box" value="12"/>
+            </div>
+            <div class="form-row last-row">
+                <span class="last-span">项目预算批复总金额（万元）：</span>
+                <input type="text" class="input-box" value="12"/>
+                <span class="last-span">截至2016年运维费用总支出（万元）：</span>
+                <input type="text" class="input-box" value="12"/>
+            </div>
+            <div class="form-row last-row">
+                <span>系统开始使用日期：</span>
+                <input type="text" class="input-box" value="12"/>
+                <span>系统运行维护单位名称：</span>
+                <input type="text" class="input-box" value="12"/>
+            </div>
+            <div class="form-row last-row">
+                <span class="last-span">数据存储量大小（GB）：</span>
+                <input type="text" class="input-box" value="12"/>
+                <span>系统用户范围：</span>
+                <input type="text" class="input-box" value="12"/>
+            </div>
+            <div class="form-row last-row">
+                <span class="last-span">系统使用频率（2016年度累计用户访问/登陆次数）：</span>
+                <input type="text" class="input-box" value="12"/>
+            </div>
+            <div class="form-row">
+                <span>主要功能：</span>
+                <textarea class="textarea-box"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="remark" style="display:none;">
+    <div class="popover-box">
+        <p class="remork-hint">凡是实现对部门内部政务信息系统统一的用户管理、接入管理资源、资源管理、授权管理、流程管理和安全审计，不存在功能类似或者重复的政务信息系统的，视为整合为一个“大系统”。</p>
+        <textarea class="remark-textarea-box"></textarea>
+    </div>
+</div>
+
+<div class="remark2" style="display:none;">
+    <div class="popover-box">
+        <p class="remork-hint">已经录入过的大系统名称可以下拉选择，为不影响考核请保持整合到大系统名称的一致性</p>
+        <div class="remork-form form-box">
+            <div class="form-row">
+                <span>已整合到大系统名称：</span>
+                <input type="text" class="input-box"/>
+                <span>大系统接入共享平台状态：</span>
+                <input type="text" class="input-box"/>
+            </div>
+        </div>
+        <textarea class="remark-textarea-box"></textarea>
+    </div>
+</div>
+
+<div class="isSwitch" style="display:none;">
+    <div class="popover-box">
+        <div class="form-box">
+            <div class="form-row last-row">
+                <span>是否接入共享平台：</span>
+                <input type="text" class="input-box"/>
+            </div>
+            <div class="form-row">
+                <span>描述：</span>
+                <textarea class="textarea-box"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="workProgress" style="display:none;">
+    <div class="popover-box">
+        <div class="pop-sl-title">1、组织落实情况</div>
+        <div class="form-box">
+            <div class="form-row">
+                <span>负责单位：</span>
+                <input type="text" class="input-box" value="56"/>
+                <span>负责人：</span>
+                <input type="text" class="input-box" value="56"/>
+            </div>
+            <div class="form-row">
+                <span>联系人：</span>
+                <input type="text" class="input-box" value="56"/>
+                <span>联系人职务：</span>
+                <input type="text" class="input-box" value="56"/>
+            </div>
+            <div class="form-row">
+                <span>联系人手机号：</span>
+                <input type="text" class="input-box" value="56"/>
+                <span>联系人电话：</span>
+                <input type="text" class="input-box" value="56"/>
+            </div>
+        </div>
+        <div class="pop-sl-title">2、系统自查整合清理情况（非涉密系统数据系统自动填写，显示当前系统统计数）</div>
+        <div class="form-box">
+            <div class="form-row last-row">
+                <span>非涉密系统总量：</span>
+                <input type="text" class="input-box" value="456"/>
+                <span>非涉密系统保留数量：</span>
+                <input type="text" class="input-box" value="456"/>
+            </div>
+            <div class="form-row last-row">
+                <span>非涉密系统已整合数量：</span>
+                <input type="text" class="input-box" value="456"/>
+                <span>非涉密系统已清理数量：</span>
+                <input type="text" class="input-box" value="456"/>
+            </div>
+            <div class="form-row last-row">
+                <span>非涉密系统拟清理数量：</span>
+                <input type="text" class="input-box" value="12"/>
+                <span>非涉密系统拟整合数量：</span>
+                <input type="text" class="input-box" value="12"/>
+            </div>
+            <div class="form-row last-row">
+                <span>其他类系统总量：</span>
+                <input type="text" class="input-box" value="12"/>
+                <span>其他类系统已整合数量：</span>
+                <input type="text" class="input-box" value="12"/>
+            </div>
+            <div class="form-row last-row">
+                <span>其他类系统已清理数量：</span>
+                <input type="text" class="input-box" value="12"/>
+                <span>其他类系统已保留数量：</span>
+                <input type="text" class="input-box" value="12"/>
+            </div>
+            <div class="form-row last-row">
+                <span>其他类系统拟清理数量：</span>
+                <input type="text" class="input-box" value="12"/>
+                <span>其他类系统拟整合数量：</span>
+                <input type="text" class="input-box" value="12"/>
+            </div>
+            <div class="form-row last-row">
+                <span class="last-span">其他类系统计划接入共享平台系统数量：</span>
+                <input type="text" class="input-box" value="12"/>
+            </div>
+        </div>
+        <div class="pop-sl-title">3、网络接入情况</div>
+        <div class="form-box">
+            <div class="form-row last-row">
+                <span class="last-span">下属单位接入政务外网数量：</span>
+                <input type="text" class="input-box" value="456"/>
+                <span>接入政务外网终端数量：</span>
+                <input type="text" class="input-box" value="456"/>
+            </div>
+            <div class="form-row last-row">
+                <span class="last-span">本部门参与共享终端总数量：</span>
+                <input type="text" class="input-box" value="12"/>
+            </div>
+        </div>
+        <div class="pop-sl-title">4、接入共享平台情况</div>
+        <div class="form-box">
+            <div class="form-row last-row">
+                <span class="last-span">计划接入共享平台系统数量：</span>
+                <input type="text" class="input-box" value="456"/>
+                <span class="last-span">已接入共享平台系统数量：</span>
+                <input type="text" class="input-box" value="456"/>
+            </div>
+        </div>
+        <div class="pop-sl-title">5、协同应用情况（此处在导入协同系统数据之后自动更新）</div>
+        <div class="form-box">
+            <div class="form-row last-row">
+                <span class="last-span">跨部门协同系统（非涉密）数量：</span>
+                <input type="text" class="input-box" value="456"/>
+                <span class="last-span">跨部门协同系统（非涉密）部署政务外网数量：</span>
+                <input type="text" class="input-box" value="456"/>
+            </div>
+        </div>
+        <div class="pop-sl-title">6、信息共享和协同案例</div>
+        <div class="form-box">
+            <div class="form-row">
+                <textarea class="remark-textarea-box" placeholder="（根据有关业务协同案例，包括开展协同的业务事项、系统名称、提供／获取信息的外部门名称共享数据内容／共享数据量等。）"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="js/jquery-v1.11.3.js"></script>
+<script src="layui/layui.js"></script>
+<script>
+    $(function(){
+        layui.use('layer', function(){ //独立版的layer无需执行这一句
+            var $ = layui.jquery, layer = layui.layer; //独立版的layer无需执行这一句
+
+            //触发事件
+            var active = {
+                notice: function(){
+                    layer.open({
+                        type: 1
+                        ,title: '注意' //不显示标题栏
+                        ,closeBtn: true //关闭按钮
+                        ,area: ['700px', 'auto'] //容器宽高
+                        ,shade: 0.6  //遮罩层透明度
+                        ,id: 'notice' //设定一个id，防止重复弹出
+                        ,btn: ['保存']
+                        ,btnAlign: 'c'  //按钮居中 c
+                        ,shadeClose: true
+                        ,content: $(".notice").html()  //弹窗内容
+                        ,success: function(layero){
+                            var btn = layero.find('.layui-layer-btn');
+                            btn.find('.layui-layer-btn0').attr({
+                                href: 'javascript:;'
+                                ,target: '_self'
+                            });
+                        }
+                    });
+                },
+                integration: function(){
+                    layer.open({
+                        type: 1
+                        ,title: '自查清理整合清单填报' //不显示标题栏
+                        ,closeBtn: true //关闭按钮
+                        ,area: ['746px', '500px'] //容器宽高
+                        ,shade: 0.6  //遮罩层透明度
+                        ,id: 'integration' //设定一个id，防止重复弹出
+                        ,btn: ['保存','取消']
+                        ,btnAlign: 'c'  //按钮居中 c
+                        ,shadeClose: true
+                        ,content: $(".integration").html()  //弹窗内容
+                        ,success: function(layero){
+                            var btn = layero.find('.layui-layer-btn');
+                            btn.find('.layui-layer-btn0').attr({
+                                href: 'javascript:;'
+                                ,target: '_self'
+                            });
+                        }
+                    });
+                },
+                remark: function(){
+                    layer.open({
+                        type: 1
+                        ,title: '备注（采取的措施）' //不显示标题栏
+                        ,closeBtn: true //关闭按钮
+                        ,area: ['746px', 'auto'] //容器宽高
+                        ,shade: 0.6  //遮罩层透明度
+                        ,id: 'remark' //设定一个id，防止重复弹出
+                        ,btn: ['保存','取消']
+                        ,btnAlign: 'c'  //按钮居中 c
+                        ,shadeClose: true
+                        ,content: $(".remark").html()  //弹窗内容
+                        ,success: function(layero){
+                            var btn = layero.find('.layui-layer-btn');
+                            btn.find('.layui-layer-btn0').attr({
+                                href: 'javascript:;'
+                                ,target: '_self'
+                            });
+                        }
+                    });
+                },
+                remark2: function(){
+                    layer.open({
+                        type: 1
+                        ,title: '备注（采取的措施）' //不显示标题栏
+                        ,closeBtn: true //关闭按钮
+                        ,area: ['746px', 'auto'] //容器宽高
+                        ,shade: 0.6  //遮罩层透明度
+                        ,id: 'remark2' //设定一个id，防止重复弹出
+                        ,btn: ['保存','取消']
+                        ,btnAlign: 'c'  //按钮居中 c
+                        ,shadeClose: true
+                        ,content: $(".remark2").html()  //弹窗内容
+                        ,success: function(layero){
+                            var btn = layero.find('.layui-layer-btn');
+                            btn.find('.layui-layer-btn0').attr({
+                                href: 'javascript:;'
+                                ,target: '_self'
+                            });
+                        }
+                    });
+                },
+                isSwitch: function(){
+                    layer.open({
+                        type: 1
+                        ,title: '是否接入共享平台' //不显示标题栏
+                        ,closeBtn: true //关闭按钮
+                        ,area: ['716px', 'auto'] //容器宽高
+                        ,shade: 0.6  //遮罩层透明度
+                        ,id: 'isSwitch' //设定一个id，防止重复弹出
+                        ,btn: ['保存','取消']
+                        ,btnAlign: 'c'  //按钮居中 c
+                        ,shadeClose: true
+                        ,content: $(".isSwitch").html()  //弹窗内容
+                        ,success: function(layero){
+                            var btn = layero.find('.layui-layer-btn');
+                            btn.find('.layui-layer-btn0').attr({
+                                href: 'javascript:;'
+                                ,target: '_self'
+                            });
+                        }
+                    });
+                },
+                workProgress: function(){
+                    layer.open({
+                        type: 1
+                        ,title: '工作进展填报' //不显示标题栏
+                        ,closeBtn: true //关闭按钮
+                        ,area: ['746px', '500px'] //容器宽高
+                        ,shade: 0.6  //遮罩层透明度
+                        ,id: 'workProgress' //设定一个id，防止重复弹出
+                        ,btn: ['保存','取消']
+                        ,btnAlign: 'c'  //按钮居中 c
+                        ,shadeClose: true
+                        ,content: $(".workProgress").html()  //弹窗内容
+                        ,success: function(layero){
+                            var btn = layero.find('.layui-layer-btn');
+                            btn.find('.layui-layer-btn0').attr({
+                                href: 'javascript:;'
+                                ,target: '_self'
+                            });
+                        }
+                    });
+                }
+            };
+
+            $('.layui-btn').on('click', function(){
+                var othis = $(this), method = othis.data('method');
+                active[method] ? active[method].call(this, othis) : '';
+            });
+
+        });
+    });
+</script>
+</body>
+</html>
